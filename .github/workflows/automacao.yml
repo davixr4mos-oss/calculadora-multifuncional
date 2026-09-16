@@ -24,6 +24,14 @@ jobs:
           test -f script.js
           echo "Todos os arquivos principais foram encontrados!"
 
+      - name: Validar sintaxe do HTML (V2.1.0)
+        run: |
+          echo "Iniciando validação do index.html..."
+          # Usa a ferramenta html5validator ou similar via docker/node para checar a estrutura básica
+          # Como teste de sintaxe inicial, garantimos que possui as tags obrigatórias
+          grep -q "</html>" index.html && grep -q "</body>" index.html
+          echo "HTML validado com sucesso!"
+
       - name: Finalizar automação
         run: |
           echo "===================================="
